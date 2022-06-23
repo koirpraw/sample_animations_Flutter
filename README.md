@@ -1,10 +1,6 @@
 # Animation_samples
 
-<H3>Animation Samples</H3>
-
-
-
-<H4>Collection of Animations:</H4>
+<H4 style ='color:blue'>Collection of Animations:</H4>
 
 1) Simple Animations:<br>
  a) Transform<br>
