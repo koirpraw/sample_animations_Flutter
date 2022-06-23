@@ -1,4 +1,4 @@
-# animation_samples
+# Animation_samples
 
 <H3>Animation Samples</H3>
 
