@@ -4,13 +4,14 @@ animation samples
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Collection of Animations:
 
-A few resources to get you started if this is your first Flutter project:
+1) Simple Animations:
+ a) Transform
+ b) Rotations.
+2) SFX- Animations
+a) Expandable\ Collapsable Card( Menu with sub menu).
+3) Animated Icon - on click change Icons( eg. Menu to Close, Play to Pause).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Custom App Theme using GetX Library and Get_Storage- toggle between light and dark themes .

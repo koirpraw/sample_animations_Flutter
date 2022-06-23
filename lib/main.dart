@@ -1,12 +1,13 @@
-import 'package:animation_samples/animatedIcon.dart';
-import 'package:animation_samples/expandCard.dart';
-import 'package:animation_samples/expandable.dart';
-import 'package:animation_samples/progressbutton.dart';
-import 'package:animation_samples/theme.dart';
-import 'package:animation_samples/themeservice.dart';
+import 'package:animation_samples/screens/animatedIconPage.dart';
+import 'package:animation_samples/screens/expandCardPage.dart';
+import 'package:animation_samples/screens/progressButtonPage.dart';
+import 'package:animation_samples/utils/theme.dart';
+import 'package:animation_samples/utils/themeservice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
+
+import 'screens/homePage/homePage.dart';
 
 
 void main() async {
@@ -26,79 +27,6 @@ class MyApp extends StatelessWidget {
       darkTheme: MyTheme().darkTheme,
       themeMode: ThemeServices().getThemeMode(),
       home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<String> menuItems = [
-    'Expandable',
-    'Slidable Card',
-    'TinderCards',
-    'SlimeyCards'
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("SFX-Animation",),
-          actions: [
-            IconButton(onPressed: (){
-              ThemeServices().changeThemeMode();
-            }, icon: Icon(Icons.nightlight_round,color: Theme.of(context).focusColor,))
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 64),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-
-              MenuCard(menuTitle: 'Expandable Menu',navRoute: ()=>Get.to(ExpandCard()),),
-             MenuCard(menuTitle: 'Animated Icon', navRoute: ()=> Get.to(MyAnimatedIconPage())),
-              MenuCard(menuTitle: 'Progress State Button', navRoute: ()=>Get.to(ProgressStateButtonPage()))
-            ],
-          ),
-        ));
-  }
-}
-
-class MenuCard extends StatelessWidget {
-
-  late String menuTitle;
-  late Function() navRoute;
-   MenuCard({
-    required this.menuTitle,
-     required this.navRoute,
-
-  }) ;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: navRoute,
-      child: Card(
-        elevation: 4,
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(menuTitle),
-              IconButton(
-                  onPressed: navRoute,
-                  icon: Icon(Icons.chevron_right))
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
