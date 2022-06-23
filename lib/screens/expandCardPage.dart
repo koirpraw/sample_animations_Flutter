@@ -18,115 +18,119 @@ class _ExpandCardState extends State<ExpandCard> {
       appBar: AppBar(
         title: Text("ExpandCard"),
 
+
       ),
       body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 12,
-            ),
-            InkWell(
-              // highlightColor: Colors.transparent,
-              splashColor: Color(0x25948EFB),
-              onTap: () => setState(() {
-                isTapped = !isTapped;
-              }),
-              onHighlightChanged: (value) {
-                setState(() {
-                  isExpanded = value;
-                });
-              },
-              child: AnimatedContainer(
-                padding: EdgeInsets.all(12),
-
-                  duration: Duration(seconds: 1),
-                  curve: Curves.fastLinearToSlowEaseIn,
-                  height: isTapped
-                      ? isExpanded
-                          ? 65
-                          : 70
-                      : isExpanded
-                          ? 225
-                          : 230,
-                  width: isExpanded ? 385 : 390,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xff948EFB).withOpacity(0.5),
-                        blurRadius: 20,
-                        offset: Offset(0, 10),
-                      ),
-                    ],
-                  ),
-                  child: isTapped
-                      ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text("Tap to see Full Options",style: TextStyle(fontSize: 20,color: Colors.blueGrey.shade700)),
-                                Icon(
-                                  isTapped
-                                      ? Icons.keyboard_arrow_down
-                                      : Icons.keyboard_arrow_up,
-                                  size: 27,
-                                  color: Colors.blueGrey,
-                                )
-                              ],
-                            ),
-                          ],
-                        )
-                      : Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Tap to see Full Options",style: TextStyle(fontSize: 20),),
-                            Icon(
-                              isTapped
-                                  ? Icons.keyboard_arrow_down
-                                  : Icons.keyboard_arrow_up,
-                              size: 27,
-                              color: Colors.blueGrey,
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      Expanded(
-                        flex: 3,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            optionCard(optionTitle: 'Get Stats', optionIcon: Icons.query_stats,snackbarTitle:'Get Stats', snackbarMessage: 'Checkout your progress',
-
-                            ),
-                            optionCard(optionTitle: 'Add Steps', optionIcon: Icons.directions_walk, snackbarTitle: 'Add Steps',snackbarMessage: 'Lets do some serious damage today', ),
-                            optionCard(optionTitle: 'Add Journal', optionIcon: Icons.note_add, snackbarTitle: 'Add Journal', snackbarMessage: 'Lets create a Journal',),
-                            optionCard(optionTitle: 'Settings', optionIcon: Icons.settings, snackbarMessage: 'Settings', snackbarTitle: 'Settings',),
-
-
-                          ],
-                        ),
-                      )
-
-                    ],
-                  ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 12,
               ),
-            ),
-            SizedBox(height: 8,width: 40,),
-            // ElevatedButton(onPressed: (){
-            //   Get.back();
-            // }, child: Icon(Icons.chevron_left,size: 32,))
-          ],
+              InkWell(
+                // highlightColor: Colors.transparent,
+                splashColor: Color(0x25948EFB),
+                onTap: () => setState(() {
+                  isTapped = !isTapped;
+                }),
+                onHighlightChanged: (value) {
+                  setState(() {
+                    isExpanded = value;
+                  });
+                },
+                child: AnimatedContainer(
+                  padding: EdgeInsets.all(12),
 
+                    duration: Duration(seconds: 1),
+                    curve: Curves.fastLinearToSlowEaseIn,
+                    height: isTapped
+                        ? isExpanded
+                            ? 65
+                            : 70
+                        : isExpanded
+                            ? 225
+                            : 230,
+                    width: isExpanded ? 385 : 390,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x10000000).withOpacity(0.20),
+                          blurRadius: 20,
+                          offset: Offset(0, 10),
+                        ),
+                      ],
+                    ),
+                    child: isTapped
+                        ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("Tap to see Full Options"),
+                                  Icon(
+                                    isTapped
+                                        ? Icons.keyboard_arrow_down
+                                        : Icons.keyboard_arrow_up,
+                                    size: 27,
+                                    color: Colors.blueGrey,
+                                  )
+                                ],
+                              ),
+                            ],
+                          )
+                        : Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("Tap to see Full Options",),
+                              Icon(
+                                isTapped
+                                    ? Icons.keyboard_arrow_down
+                                    : Icons.keyboard_arrow_up,
+                                size: 27,
+                                color: Colors.blueGrey,
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              optionCard(optionTitle: 'Get Stats', optionIcon: Icons.query_stats,snackbarTitle:'Get Stats', snackbarMessage: 'Checkout your progress',
+
+                              ),
+                              optionCard(optionTitle: 'Add Steps', optionIcon: Icons.directions_walk, snackbarTitle: 'Add Steps',snackbarMessage: 'Lets do some serious damage today', ),
+                              optionCard(optionTitle: 'Add Journal', optionIcon: Icons.note_add, snackbarTitle: 'Add Journal', snackbarMessage: 'Lets create a Journal',),
+                              optionCard(optionTitle: 'Settings', optionIcon: Icons.settings, snackbarMessage: 'Settings', snackbarTitle: 'Settings',),
+
+
+                            ],
+                          ),
+                        )
+
+                      ],
+                    ),
+                ),
+              ),
+              SizedBox(height: 8,width: 40,),
+              // ElevatedButton(onPressed: (){
+              //   Get.back();
+              // }, child: Icon(Icons.chevron_left,size: 32,))
+            ],
+
+          ),
         ),
       ),
     );
@@ -159,8 +163,8 @@ class optionCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(optionTitle,style: TextStyle(color: Colors.blueGrey.shade800),),
-              Icon(optionIcon, color: Colors.blueGrey,)
+              Text(optionTitle,),
+              Icon(optionIcon,)
             ],
           ),
         ),
